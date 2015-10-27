@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="com.lit.hw1.dto.Student" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,7 +32,7 @@ pageEncoding="ISO-8859-1"%>
   <!-- End Custom Javascript -->
 </head>
 <body>
-  ${message}
+${message}
   <div id="main" class="container-fluid">
     <div class="row col-sm-11 center-block">
 
@@ -41,47 +41,45 @@ pageEncoding="ISO-8859-1"%>
           <h1>All Student</h1>
           <hr> 
           <form role="form" class="col-sm-12 search-bar">         
-            <!-- Table User List -->
-            <div class="table-responsive">       
-              <table class="table table-striped table-hover">
-                <thead>
-                  <tr class="info">
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Classroom</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
+          <!-- Table User List -->
+          <div class="table-responsive">       
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr class="info">
+                  <th>ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Classroom</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
                   <%
-                  ArrayList<Student> a = new ArrayList<Student>();
-                  a = (ArrayList<Student>) request.getAttribute("listStudent");
-                  for(int i=0;i<a.size();i++){
+                  	ArrayList<Student> a = new ArrayList<Student>();
+                  	a = (ArrayList<Student>) request.getAttribute("listStudent");
+                  	for(int i=0;i<a.size();i++){
                   %>                  
-                  <tr> 
-                    <td><%=a.get(i).getId()%></td>
-                    <td><%=a.get(i).getFirstname()%></td>
-                    <td><%=a.get(i).getLastname()%></td>
-                    <td><%=a.get(i).getClassroom()%></td>
-                    <td>
-                     <form:form method="delete">
-                     <p class="submit"><input type="submit" value="Delete Pet"/></p>
-                   </form:form>
-                   <a href="${pageContext.request.contextPath}/update">update</a>
-                   <a href="${pageContext.request.contextPath}/detail">detail</a>
-                 </td>
-               </tr>
-               <%} %>
-             </tbody>   
-           </table> 
-           <a href="${pageContext.request.contextPath}/">home</a>
-           <a href="${pageContext.request.contextPath}/add">add</a>
-         </div>
-         <!-- End Table User List -->    
-       </div> 
-     </div>
-   </div>
- </div>
+					<tr> 
+						<td><%=a.get(i).getId()%></td>
+						<td><%=a.get(i).getFirstname()%></td>
+						<td><%=a.get(i).getLastname()%></td>
+						<td><%=a.get(i).getClassroom()%></td>
+						<td>
+							<a href="#">delete</a>
+            				<a href="${pageContext.request.contextPath}/update">update</a>
+            				<a href="${pageContext.request.contextPath}/detail">detail</a>
+            			</td>
+					</tr>
+				  <%} %>
+              </tbody>   
+            </table> 
+            <a href="${pageContext.request.contextPath}/">home</a>
+            <a href="${pageContext.request.contextPath}/add">add</a>
+          </div>
+          <!-- End Table User List -->    
+        </div> 
+      </div>
+    </div>
+  </div>
 </body>
 </html>
