@@ -65,21 +65,23 @@ pageEncoding="ISO-8859-1"%>
                     <td><%=a.get(i).getLastname()%></td>
                     <td><%=a.get(i).getClassroom()%></td>
                     <td>
-                     <a href="#">delete</a>
-                     <a href="${pageContext.request.contextPath}/update">update</a>
-                     <a href="${pageContext.request.contextPath}/detail">detail</a>
-                   </td>
-                 </tr>
-                 <%} %>
-               </tbody>   
-             </table> 
-             <a href="${pageContext.request.contextPath}/">home</a>
-             <a href="${pageContext.request.contextPath}/add">add</a>
-           </div>
-           <!-- End Table User List -->    
-         </div> 
-       </div>
+                     <form:form method="delete">
+                     <p class="submit"><input type="submit" value="Delete Pet"/></p>
+                   </form:form>
+                   <a href="${pageContext.request.contextPath}/update">update</a>
+                   <a href="${pageContext.request.contextPath}/detail">detail</a>
+                 </td>
+               </tr>
+               <%} %>
+             </tbody>   
+           </table> 
+           <a href="${pageContext.request.contextPath}/">home</a>
+           <a href="${pageContext.request.contextPath}/add">add</a>
+         </div>
+         <!-- End Table User List -->    
+       </div> 
      </div>
    </div>
- </body>
- </html>
+ </div>
+</body>
+</html>
