@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <meta name="author" content="Chhorn Elit">
   <meta lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,8 +44,8 @@ ${message}<a href="${pageContext.request.contextPath}/">home</a>
               <strong>Insert Successfully!</strong> 
             </center> 
           </div>           
-  		    <h1>Add New</h1>
-         	<hr> 
+          <h1>Student Detail</h1>
+          <hr> 
           <div class="col-sm-12 input-group">
             <div class="col-sm-5">
               <div class="form-group">
@@ -102,7 +102,7 @@ ${message}<a href="${pageContext.request.contextPath}/">home</a>
           <div class="col-sm-6">
             <div class="form-group">    
               <button id="btnAdd" class="btn btn-primary" style="width:200px;">
-              <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add User</button>
+              <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add</button>
               <button id="btnClear" class="btn btn-primary pull-right" style="width:200px;">
               <i class="fa fa-times-circle"></i>&nbsp;&nbsp;Clear</button>
               </button>
@@ -110,61 +110,7 @@ ${message}<a href="${pageContext.request.contextPath}/">home</a>
           </div>  
         
       </div>
-      <div class="col-sm-12 card"> 
-        <div class="col-sm-12">
-          <h1>Search</h1>
-          <hr> 
-          <form role="form" class="col-sm-12 search-bar">
-            <!-- Search Button -->
-            <div class="col-sm-8">
-              <input id="inputSearchName" type="textbox" placeholder="Enter Name " class="form-control input-lg">
-            </div> 
-            <!-- End Search Button -->
 
-            <!-- Search Type Select -->
-            <div class="col-sm-2">
-              <div class="form-group" >
-                <select name="Type" class="selectpicker" id="selectSearchTypeClass" >
-                  <option class="active">All Class</option>
-                  <option>PP</option>
-                  <option>BTB</option>
-                  <option>SR</option>
-                </select>
-              </div>               
-            </div>        
-            <!-- End Search Type Select -->       
-            <div class="col-sm-2">
-              <div class="form-group" >
-                <select name="Type" class="selectpicker" id="selectSearchTypeStatus" >
-                  <option class="active">All Status</option>
-                  <option>Active</option>
-                  <option>Inactive</option>
-                </select>
-              </div>               
-            </div>       
-          </form>             
-          <!-- Table User List -->
-          <div class="table-responsive">       
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr class="info">
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Gender</th>
-                  <th>University</th>
-                  <th>Class</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                                                                  
-              </tbody>   
-            </table> 
-          </div>
-          <!-- End Table User List -->    
-        </div> 
-      </div>
     </div>
   </div>
 </body>
