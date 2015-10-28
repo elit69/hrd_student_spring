@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lit.hw1.dao.StudentDao;
 import com.lit.hw1.dto.Student;
@@ -16,9 +17,12 @@ public class MainController {
 	@Autowired
 	StudentDao studentDao;
 	
+	static String delete_status;
+	
 	@RequestMapping(value = "/" ,  method = RequestMethod.GET)
 	public String homePage(ModelMap model){
 		model.addAttribute("message","Hello Home Page");
+		model.addAttribute("delete_status", delete_status);
 		model.addAttribute("listStudent", studentDao.list());
 		System.out.println("home page");
 		return "home";
@@ -46,8 +50,11 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "delete" ,  method = RequestMethod.POST)
-	public String delete(ModelMap model){
-		System.out.println("delete action");
+	public String delete(ModelMap model,  @RequestParam(value="id", required=false) int stuId){
+		System.out.println("delete action" + stuId);
+		delete_status = studentDao.delete(stuId);
+		System.out.println(delete_status);
+		
 		return "redirect:/";
 	}
 	

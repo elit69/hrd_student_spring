@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,6 +34,7 @@ pageEncoding="ISO-8859-1"%>
 </head>
 <body>
   ${message}
+
   <div id="main" class="container-fluid">
     <div class="row col-sm-11 center-block">
 
@@ -53,27 +55,23 @@ pageEncoding="ISO-8859-1"%>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <%
-                  ArrayList<Student> a = new ArrayList<Student>();
-                  a = (ArrayList<Student>) request.getAttribute("listStudent");
-                  for(int i=0;i<a.size();i++){
-                  %>                  
-                  <tr> 
-                    <td><%=a.get(i).getId()%></td>
-                    <td><%=a.get(i).getFirstname()%></td>
-                    <td><%=a.get(i).getLastname()%></td>
-                    <td><%=a.get(i).getClassroom()%></td>
-                    <td>
-                    <mvc:form action="delete" method="POST">
-                    <input type="submit">
-					<%-- <a href="${pageContext.request.contextPath}/delete">delete</a> --%>
+                <tbody>               
+               <c:forEach var="stu" items="${listStudent}">
+				<tr>
+					<td><c:out value="${stu.id}"/></td>
+					<td><c:out value="${stu.lastname}"/></td>
+					<td><c:out value="${stu.firstname}"/></td>
+					<td><c:out value="${stu.classroom}"/></td>
+					<td>
+                    <mvc:form id="delete" action="delete" method="POST">
+                    	<input type="hidden" name="id" value="${stu.id}">
+                    	<input type="submit" value="Delete">
 					</mvc:form>
                    <a href="${pageContext.request.contextPath}/update">update</a>
                    <a href="${pageContext.request.contextPath}/show">show</a>
                  </td>
-               </tr>
-               <%} %>
+				</tr>
+				</c:forEach>	
              </tbody>   
            </table> 
            <a href="${pageContext.request.contextPath}/">home</a>
