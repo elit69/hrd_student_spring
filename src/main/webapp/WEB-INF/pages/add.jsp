@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -46,6 +47,7 @@ ${message}<a href="${pageContext.request.contextPath}/">home</a>
           </div>           
   		    <h1>Add Student</h1>
          	<hr> 
+        <mvc:form action="${pageContext.request.contextPath}/add" method="POST">
           <div class="col-sm-12 input-group">
             <div class="col-sm-5">
               <div class="form-group">
@@ -55,52 +57,29 @@ ${message}<a href="${pageContext.request.contextPath}/">home</a>
                   </div>
               </div>              
               <div class="form-group">
-                  <label class="col-sm-3">Name:</label>
+                  <label class="col-sm-3">First Name:</label>
                   <div class="col-sm-9">
                       <input type="text" id="inputName" class="form-control" name="name" placeholder="Enter Name" maxlength="100"> </div>
               </div>
-              <div class="form-group ">
-                <label class="col-sm-3">Gender:</label>
-                <div class="col-sm-9 gender">
-                  <span class="col-sm-2"></span>
-                  <span class="col-sm-4">
-                    <input type="radio" id="inputGenderMale" name="gender" value="male" data-fv-field="gender" checked> Male
-                  </span>
-                  <span class="col-sm-5">
-                    <input type="radio" id="inputGenderFemale" name="gender" value="female" data-fv-field="gender"> Female
-                  </span>
-                </div>
-              </div>  
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
               <div class="form-group">
-                  <label class="col-sm-3">University: </label>
+                  <label class="col-sm-3">Classroom: </label>
                   <div class="col-sm-9">
                       <input type="text" id="inputUniversity" name="city" class="form-control" placeholder="Enter University" maxlength="50"> </div>
               </div>
               <div class="form-group">
-                  <label class="col-sm-3">Class: </label>
+                  <label class="col-sm-3">Last Name:</label>
                   <div class="col-sm-9">
-                      <input type="text" id="inputClass" name="city" class="form-control" placeholder="Enter Class" maxlength="5"> </div>
+                      <input type="text" id="inputName" class="form-control" name="name" placeholder="Enter Name" maxlength="100"> </div>
               </div>
-              <div class="form-group ">
-                <label class="col-sm-3">Status:</label>
-                <div class="col-sm-9 gender">
-                  <span class="col-sm-2"></span>
-                  <span class="col-sm-4">
-                    <input type="radio" id="inputStatusActive" name="status" value="active" checked> Active
-                  </span>
-                  <span class="col-sm-5">
-                    <input type="radio" id="inputStatusInactive" name="status" value="inactive"> Inactive
-                  </span>
-                </div>
-              </div>                   
             </div>            
           </div>
           <div class="col-sm-3"></div>
           <div class="col-sm-6">
             <div class="form-group">    
+            <input type="submit">
               <button id="btnAdd" class="btn btn-primary" style="width:200px;">
               <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add</button>
               <button id="btnClear" class="btn btn-primary pull-right" style="width:200px;">
@@ -108,9 +87,8 @@ ${message}<a href="${pageContext.request.contextPath}/">home</a>
               </button>
             </div>
           </div>  
-        
+        </mvc:form>
       </div>
-
     </div>
   </div>
 </body>

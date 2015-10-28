@@ -23,7 +23,7 @@
 
 	<filter-mapping>
 		<filter-name>httpMethodFilter</filter-name>
-		<servlet-name>petclinic</servlet-name>
+		<servlet-name>dispatch1er</servlet-name>
 	</filter-mapping>
 </web-app>
 

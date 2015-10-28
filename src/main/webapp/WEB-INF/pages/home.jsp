@@ -1,8 +1,8 @@
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.lit.hw1.dto.Student" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.ArrayList" %>
-<%@page import="com.lit.hw1.dto.Student" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -65,11 +65,12 @@ pageEncoding="ISO-8859-1"%>
                     <td><%=a.get(i).getLastname()%></td>
                     <td><%=a.get(i).getClassroom()%></td>
                     <td>
-                     <form:form method="delete">
-                     <p class="submit"><input type="submit" value="Delete Pet"/></p>
-                   </form:form>
+                    <mvc:form action="delete" method="POST">
+                    <input type="submit">
+					<%-- <a href="${pageContext.request.contextPath}/delete">delete</a> --%>
+					</mvc:form>
                    <a href="${pageContext.request.contextPath}/update">update</a>
-                   <a href="${pageContext.request.contextPath}/detail">detail</a>
+                   <a href="${pageContext.request.contextPath}/show">show</a>
                  </td>
                </tr>
                <%} %>
