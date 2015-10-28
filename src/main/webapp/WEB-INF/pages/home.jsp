@@ -33,16 +33,12 @@ pageEncoding="ISO-8859-1"%>
   <!-- End Custom Javascript -->
 </head>
 <body>
-  ${message}
-
   <div id="main" class="container-fluid">
     <div class="row col-sm-11 center-block">
-
       <div class="col-sm-12 card"> 
         <div class="col-sm-12">
           <h1>All Student</h1>
-          <hr> 
-          <form role="form" class="col-sm-12 search-bar">         
+          <hr>          
             <!-- Table User List -->
             <div class="table-responsive">       
               <table class="table table-striped table-hover">

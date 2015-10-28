@@ -21,7 +21,6 @@ public class MainController {
 	
 	@RequestMapping(value = "/" ,  method = RequestMethod.GET)
 	public String homePage(ModelMap model){
-		model.addAttribute("message","Hello Home Page");
 		model.addAttribute("delete_status", delete_status);
 		model.addAttribute("listStudent", studentDao.list());
 		System.out.println("home page");
@@ -41,7 +40,8 @@ public class MainController {
 		System.out.println("add action");
 		return "redirect:/add";
 	}
-	
+
+
 	@RequestMapping(value = "/update" ,  method = RequestMethod.GET)
 	public String updatePage(ModelMap model){
 		model.addAttribute("message","This is Update Page");
@@ -50,11 +50,9 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "delete" ,  method = RequestMethod.POST)
-	public String delete(ModelMap model,  @RequestParam(value="id", required=false) int stuId){
+	public String delete(ModelMap model,  @RequestParam(value="id", required=true) int stuId){
 		System.out.println("delete action" + stuId);
-		delete_status = studentDao.delete(stuId);
-		System.out.println(delete_status);
-		
+		System.out.println(studentDao.delete(stuId));		
 		return "redirect:/";
 	}
 	

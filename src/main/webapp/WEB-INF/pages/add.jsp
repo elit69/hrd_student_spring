@@ -53,7 +53,7 @@ ${message}<a href="${pageContext.request.contextPath}/">home</a>
               <div class="form-group">
                   <label class="col-sm-3">ID:</label>
                   <div class="col-sm-9">
-                      <input type="text" id="inputId" class="form-control" name="id" placeholder="Enter ID" disabled style="cursor:alias;">
+                      <input type="number" id="inputId" class="form-control" name="id" placeholder="Enter ID">
                   </div>
               </div>              
               <div class="form-group">
