@@ -3,7 +3,7 @@ package com.lit.hw1.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,10 +35,10 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "add" ,  method = RequestMethod.POST)
-	public String add(ModelMap model){
-		model.addAttribute("student" , new Student());
-		System.out.println("add action");
-		return "redirect:/add";
+	public String add(ModelMap model, @ModelAttribute(value="stu")Student stuobj){
+		System.out.println("add action " + stuobj.getFirstname());
+		studentDao.add(stuobj);
+		return "redirect:/";
 	}
 
 

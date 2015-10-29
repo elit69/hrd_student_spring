@@ -44,11 +44,11 @@ public class StudentDao {
 		try {
 			cnn = dataSource.getConnection();
 			PreparedStatement ps = cnn
-					.prepareStatement("INSERT INTO student VALUES(?,?,?,?)");
-			ps.setInt(1, stu.getId());
-			ps.setString(2, stu.getFirstname());
-			ps.setString(3, stu.getLastname());
-			ps.setString(4, stu.getClassroom());
+					.prepareStatement("INSERT INTO student(first_name,last_name,classroom) "
+							+ "VALUES (?,?,?);");
+			ps.setString(1, stu.getFirstname());
+			ps.setString(2, stu.getLastname());
+			ps.setString(3, stu.getClassroom());
 			if (ps.executeUpdate() > 0)
 				return true;
 			System.out.println(ps.toString());

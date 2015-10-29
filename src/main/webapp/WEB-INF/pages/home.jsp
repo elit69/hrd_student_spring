@@ -55,8 +55,8 @@ pageEncoding="ISO-8859-1"%>
                <c:forEach var="stu" items="${listStudent}">
 				<tr>
 					<td><c:out value="${stu.id}"/></td>
-					<td><c:out value="${stu.lastname}"/></td>
 					<td><c:out value="${stu.firstname}"/></td>
+					<td><c:out value="${stu.lastname}"/></td>
 					<td><c:out value="${stu.classroom}"/></td>
 					<td>
                     <mvc:form id="delete" action="delete" method="POST">
