@@ -23,6 +23,7 @@ public class StudentDao {
 			ResultSet rs = null;
 			String sql = "select * from student ORDER BY id;";
 			PreparedStatement ps = cnn.prepareStatement(sql);
+			System.out.println(ps.toString());
 			rs = ps.executeQuery();
 			ArrayList<Student> listStudent = new ArrayList<Student>();
 			while (rs.next()) {
@@ -49,9 +50,9 @@ public class StudentDao {
 			ps.setString(1, stu.getFirstname());
 			ps.setString(2, stu.getLastname());
 			ps.setString(3, stu.getClassroom());
+			System.out.println(ps.toString());
 			if (ps.executeUpdate() > 0)
 				return true;
-			System.out.println(ps.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -67,13 +68,13 @@ public class StudentDao {
 							+ "last_name = ?, "
 							+ "classroom= ? "
 							+ "where id = ?");
-			ps.setInt(1, stu.getId());
-			ps.setString(2, stu.getFirstname());
-			ps.setString(3, stu.getLastname());
-			ps.setString(4, stu.getClassroom());
+			ps.setString(1, stu.getFirstname());
+			ps.setString(2, stu.getLastname());
+			ps.setString(3, stu.getClassroom());
+			ps.setInt(4, stu.getId());
+			System.out.println(ps.toString());
 			if (ps.executeUpdate() > 0)
 				return true;
-			System.out.println(ps.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -86,9 +87,9 @@ public class StudentDao {
 			PreparedStatement ps = cnn
 					.prepareStatement("Delete from student where id = ?");
 			ps.setInt(1, stuId);
+			System.out.println(ps.toString());
 			if (ps.executeUpdate() > 0)
 				return true;
-			System.out.println(ps.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,6 +103,7 @@ public class StudentDao {
 			String sql = "select * from student where id = ?";
 			PreparedStatement ps = cnn.prepareStatement(sql);
 			ps.setInt(1, stuId);
+			System.out.println(ps.toString());
 			rs = ps.executeQuery();
 			if(rs.next()){
 				Student s = new Student();

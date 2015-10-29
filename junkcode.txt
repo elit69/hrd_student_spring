@@ -1,0 +1,11 @@
+<mvc:form id="delete" action="delete" method="POST">
+  <input type="hidden" name="id" value="${stu.id}">
+  <input type="submit" value="Delete">
+</mvc:form>
+#################################
+  @RequestMapping(value = "delete" ,  method = RequestMethod.POST)
+  public String delete(ModelMap model,  @RequestParam(value="id", required=true) int stuId){
+    System.out.println("delete action" + stuId);
+    studentDao.delete(stuId);   
+    return "redirect:/";
+  }

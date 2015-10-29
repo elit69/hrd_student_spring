@@ -22,38 +22,11 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/index.css">
 <!-- End Custom StyleSheet -->
-
-<!-- Javascript Library -->
-<script
-	src="${pageContext.request.contextPath}/resources/js/lib/jquery-2.1.4.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/lib/bootstrap.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/lib/bootstrap-select.min.js"></script>
-<!-- End Javascript Library -->
-
-<!-- Custom Javascript -->
-<script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
-<!-- End Custom Javascript -->
 </head>
 <body>
-	<a href="${pageContext.request.contextPath}/">home</a>
 	<div id="main" class="container-fluid">
 		<div class="row col-sm-11 center-block">
 			<div class="col-sm-12 card form-horizontal">
-
-				<div id="showErrorAdd" class='alert alert-danger'
-					style='padding: 20px !important'>
-					<center>
-						<strong>Insert Error!</strong> Please Input All Fields!
-					</center>
-				</div>
-				<div id="showSuccessAdd" class='alert alert-success'
-					style='padding: 20px !important'>
-					<center>
-						<strong>Insert Successfully!</strong>
-					</center>
-				</div>
 				<h1>Add Student</h1>
 				<hr>
 				<mvc:form action="${pageContext.request.contextPath}/add"
@@ -92,7 +65,6 @@
 								<button type="reset" id="btnClear" class="btn btn-primary pull-right"
 									style="width: 200px;">
 									<i class="fa fa-times-circle"></i>&nbsp;&nbsp;Clear
-								</button>
 								</button>
 							</div>
 						</div>

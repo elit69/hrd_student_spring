@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,17 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.lit.hw1.dao.StudentDao;
 import com.lit.hw1.dto.Student;
 
+@SuppressWarnings("unused")
 @Controller
 public class MainController {
 
 	@Autowired
 	StudentDao studentDao;
 	
-	static String delete_status;
+	//static String delete_status;
 	
 	@RequestMapping(value = "/" ,  method = RequestMethod.GET)
 	public String homePage(ModelMap model){
-		model.addAttribute("delete_status", delete_status);
+		//model.addAttribute("delete_status", delete_status);
 		model.addAttribute("listStudent", studentDao.list());
 		System.out.println("home page");
 		return "home";
@@ -29,42 +31,42 @@ public class MainController {
 	
 	@RequestMapping(value = "/add" ,  method = RequestMethod.GET)
 	public String addPage(ModelMap model){
-		model.addAttribute("message","This is Add Page");
 		System.out.println("add page");
 		return "add";
 	}
 
-	@RequestMapping(value = "add" ,  method = RequestMethod.POST)
-	public String add(ModelMap model, @ModelAttribute(value="stu")Student stuobj){
+	@RequestMapping(value = "/add" ,  method = RequestMethod.POST)
+	public String add(@ModelAttribute(value="stu")Student stuobj){
 		System.out.println("add action " + stuobj.getFirstname());
 		studentDao.add(stuobj);
 		return "redirect:/";
 	}
 
-
-	@RequestMapping(value = "/update" ,  method = RequestMethod.GET)
-	public String updatePage(ModelMap model){
-		model.addAttribute("message","This is Update Page");
-		System.out.println("update page");
+	@RequestMapping(value = "/update/{id}" ,  method = RequestMethod.GET)
+	public String updatePage(ModelMap model, @PathVariable int id){
+		System.out.println("update page" + id);
+		model.addAttribute("stu",studentDao.show(id));
 		return "update";
 	}
 	
-	@RequestMapping(value = "delete" ,  method = RequestMethod.POST)
-	public String delete(ModelMap model,  @RequestParam(value="id", required=true) int stuId){
-		System.out.println("delete action" + stuId);
-		System.out.println(studentDao.delete(stuId));		
+	@RequestMapping(value = "/update" ,  method = RequestMethod.POST)
+	public String update(@ModelAttribute(value="stu1")Student stuobj){
+		System.out.println("update action " + stuobj.getId());
+		studentDao.update(stuobj);
 		return "redirect:/";
 	}
 	
-/*	
-	@RequestMapping(value = "update" ,  method = RequestMethod.POST)
-	public String update(ModelMap model){
-		model.addAttribute("student" , new Student());
-		return "home";
+	@RequestMapping(value = "/delete/{id}" ,  method = RequestMethod.GET)
+	public String delete(@PathVariable int id){
+		System.out.println("delete action" + id);
+		studentDao.delete(id);		
+		return "redirect:/";
 	}
-	@RequestMapping(value = "show" ,  method = RequestMethod.GET)
-	public String showPage(ModelMap model){
-		model.addAttribute("message","This is Detail Page");
+	
+	@RequestMapping(value = "/show/{id}" ,  method = RequestMethod.GET)
+	public String showPage(ModelMap model, @PathVariable int id){
+		System.out.println("show page " + id);
+		model.addAttribute("stu",studentDao.show(id));
 		return "show";
-	}*/
+	}
 }
