@@ -50,22 +50,26 @@
 							<div class="form-group">
 								<label class="col-sm-3">Classroom: </label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" name="classroom" 
+									<input type="text" class="form-control" name="classroom"
 										placeholder="Enter Classroom" maxlength="50">
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6 center-block">
+						<div class="col-sm-8 center-block">
 							<div class="form-group">
-								
+
 								<button type="submit" id="btnAdd" class="btn btn-primary"
 									style="width: 200px;">
 									<i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add
 								</button>
-								<button type="reset" id="btnClear" class="btn btn-primary pull-right"
-									style="width: 200px;">
+								<button type="reset" id="btnClear"
+									class="btn btn-primary" style="width: 200px;">
 									<i class="fa fa-times-circle"></i>&nbsp;&nbsp;Clear
 								</button>
+								<a href="${pageContext.request.contextPath}/" id="btnClear"
+									class="btn btn-primary" style="width: 200px;"> <i
+									class="fa fa-home"></i>&nbsp;&nbsp;Home
+								</a>
 							</div>
 						</div>
 					</div>

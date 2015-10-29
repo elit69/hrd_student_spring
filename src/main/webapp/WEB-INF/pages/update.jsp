@@ -36,28 +36,31 @@
 							<div class="form-group">
 								<label class="col-sm-3">ID:</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" maxlength="100" name="id" 
-										value="${stu.id}" disabled>
+									<input type="number" class="form-control" maxlength="100"
+										name="id" value="${stu.id}" readonly>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3">First Name:</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" maxlength="100" name="firstname" placeholder="Enter First Name"
+									<input type="text" class="form-control" maxlength="100"
+										name="firstname" placeholder="Enter First Name"
 										value="${stu.firstname}">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3">Last Name:</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" maxlength="100" name="lastname" placeholder="Enter Last Name"
+									<input type="text" class="form-control" maxlength="100"
+										name="lastname" placeholder="Enter Last Name"
 										value="${stu.lastname}">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3">Classroom: </label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" maxlength="50" name="classroom" placeholder="Enter Classroom"
+									<input type="text" class="form-control" maxlength="50"
+										name="classroom" placeholder="Enter Classroom"
 										value="${stu.classroom}">
 								</div>
 							</div>
@@ -66,12 +69,12 @@
 							<div class="form-group">
 								<button type="submit" id="btnAdd" class="btn btn-primary"
 									style="width: 200px;">
-									<i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Update
+									<i class="fa fa-pencil"></i>&nbsp;&nbsp;Update
 								</button>
-								<button id="btnClear" class="btn btn-primary pull-right"
+								<a href="${pageContext.request.contextPath}/" id="btnClear" class="btn btn-primary pull-right"
 									style="width: 200px;">
-									<i class="fa fa-times-circle"></i>&nbsp;&nbsp;Home
-								</button>
+									<i class="fa fa-home"></i>&nbsp;&nbsp;Home
+								</a>
 							</div>
 						</div>
 					</div>

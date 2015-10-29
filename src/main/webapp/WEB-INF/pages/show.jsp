@@ -34,48 +34,42 @@
 						<div class="form-group">
 							<label class="col-sm-3">ID:</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" maxlength="100"
-									value="${stu.id}" disabled>
+								<input type="number" class="form-control" maxlength="100"
+									value="${stu.id}" readonly>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3">First Name:</label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" maxlength="100"
-									value="${stu.firstname}" disabled>
+									value="${stu.firstname}" readonly>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3">Last Name:</label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" maxlength="100"
-									value="${stu.lastname}" disabled>
+									value="${stu.lastname}" readonly>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3">Classroom: </label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" maxlength="50"
-									value="${stu.classroom}" disabled>
+									value="${stu.classroom}" readonly>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6 center-block">
 						<div class="form-group">
-							<mvc:form action="${pageContext.request.contextPath}/update/${stu.id}"
-								method="GET">
-								<button type="submit" id="btnAdd" class="btn btn-primary"
-									style="width: 200px;">
-									<i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Update
-								</button>
-							</mvc:form>
-							<mvc:form action="${pageContext.request.contextPath}/"
-								method="GET">
-								<button type="submit" id="btnClear" class="btn btn-primary pull-right"
-									style="width: 200px;">
-									<i class="fa fa-times-circle"></i>&nbsp;&nbsp;Home
-								</button>
-							</mvc:form>
+							<a href="${pageContext.request.contextPath}/update/${stu.id}" id="btnAdd" class="btn btn-primary"
+								style="width: 200px;">
+								<i class="fa fa-pencil"></i>&nbsp;&nbsp;Update
+							</a>
+							<a href="${pageContext.request.contextPath}/" id="btnClear"
+								class="btn btn-primary pull-right" style="width: 200px;">
+								<i class="fa fa-home"></i>&nbsp;&nbsp;Home
+							</a>
 						</div>
 					</div>
 				</div>

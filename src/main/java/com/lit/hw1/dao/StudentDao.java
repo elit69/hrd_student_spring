@@ -3,6 +3,7 @@ package com.lit.hw1.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.sql.DataSource;
@@ -18,13 +19,14 @@ public class StudentDao {
 	}
 
 	public ArrayList<Student> list() {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		try {
 			cnn = dataSource.getConnection();
-			ResultSet rs = null;
 			String sql = "select * from student ORDER BY id;";
-			PreparedStatement ps = cnn.prepareStatement(sql);
-			System.out.println(ps.toString());
+			ps = cnn.prepareStatement(sql);
 			rs = ps.executeQuery();
+			System.out.println(ps.toString());
 			ArrayList<Student> listStudent = new ArrayList<Student>();
 			while (rs.next()) {
 				Student s = new Student();
@@ -37,16 +39,23 @@ public class StudentDao {
 			return listStudent;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				ps.close();
+				cnn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}
 
 	public boolean add(Student stu) {
+		PreparedStatement ps = null;
 		try {
 			cnn = dataSource.getConnection();
-			PreparedStatement ps = cnn
-					.prepareStatement("INSERT INTO student(first_name,last_name,classroom) "
-							+ "VALUES (?,?,?);");
+			ps = cnn.prepareStatement("INSERT INTO student(first_name,last_name,classroom) " + "VALUES (?,?,?);");
 			ps.setString(1, stu.getFirstname());
 			ps.setString(2, stu.getLastname());
 			ps.setString(3, stu.getClassroom());
@@ -55,19 +64,23 @@ public class StudentDao {
 				return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				cnn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
 
 	public boolean update(Student stu) {
+		PreparedStatement ps = null;
 		try {
 			cnn = dataSource.getConnection();
-			PreparedStatement ps = cnn
-					.prepareStatement("update student set "
-							+ "first_name = ?, "
-							+ "last_name = ?, "
-							+ "classroom= ? "
-							+ "where id = ?");
+			ps = cnn.prepareStatement(
+					"update student set " + "first_name = ?, " + "last_name = ?, " + "classroom= ? " + "where id = ?");
 			ps.setString(1, stu.getFirstname());
 			ps.setString(2, stu.getLastname());
 			ps.setString(3, stu.getClassroom());
@@ -77,35 +90,50 @@ public class StudentDao {
 				return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				ps.close();
+				cnn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
 
 	public boolean delete(int stuId) {
+		PreparedStatement ps = null;
 		try {
 			cnn = dataSource.getConnection();
-			PreparedStatement ps = cnn
-					.prepareStatement("Delete from student where id = ?");
+			ps = cnn.prepareStatement("Delete from student where id = ?");
 			ps.setInt(1, stuId);
 			System.out.println(ps.toString());
 			if (ps.executeUpdate() > 0)
 				return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				ps.close();
+				cnn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
 
 	public Student show(int stuId) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		try {
 			cnn = dataSource.getConnection();
-			ResultSet rs = null;
 			String sql = "select * from student where id = ?";
-			PreparedStatement ps = cnn.prepareStatement(sql);
+			ps = cnn.prepareStatement(sql);
 			ps.setInt(1, stuId);
 			System.out.println(ps.toString());
 			rs = ps.executeQuery();
-			if(rs.next()){
+			if (rs.next()) {
 				Student s = new Student();
 				s.setId(rs.getInt("id"));
 				s.setFirstname(rs.getString("first_name"));
@@ -115,6 +143,14 @@ public class StudentDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				ps.close();
+				cnn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}

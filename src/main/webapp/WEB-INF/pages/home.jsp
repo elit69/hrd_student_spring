@@ -31,7 +31,11 @@
 		<div class="row col-sm-11 center-block">
 			<div class="col-sm-12 card">
 				<div class="col-sm-12">
-					<h1>All Student</h1>
+					<h1>
+						All Student<a class="pull-right"
+							href="${pageContext.request.contextPath}/add"><i
+							class="fa fa-plus"></i></a>
+					</h1>
 					<hr>
 					<!-- Table User List -->
 					<div class="table-responsive">
@@ -52,16 +56,20 @@
 										<td><c:out value="${stu.firstname}" /></td>
 										<td><c:out value="${stu.lastname}" /></td>
 										<td><c:out value="${stu.classroom}" /></td>
-										<td><a
-											href="${pageContext.request.contextPath}/delete/${stu.id}">delete</a>
-											<a href="${pageContext.request.contextPath}/update/${stu.id}">update</a>
-											<a href="${pageContext.request.contextPath}/show/${stu.id}">show</a>
-										</td>
+										<td><a class="label label-info"
+											href="${pageContext.request.contextPath}/show/${stu.id}"
+											style="margin-right: 10px;"><i class="fa fa-eye fa-lg"></i> Show
+										</a> <a class="label label-primary"
+											href="${pageContext.request.contextPath}/update/${stu.id}"
+											style="margin-right: 10px;"><i class="fa fa-pencil fa-lg"></i> Update
+										</a> <a class="label label-danger"
+											href="${pageContext.request.contextPath}/delete/${stu.id}"
+											style="margin-right: 10px;"><i
+												class="fa fa-trash-o fa-lg"></i> Delete</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						<a href="${pageContext.request.contextPath}/add">add</a>
 					</div>
 					<!-- End Table User List -->
 				</div>
