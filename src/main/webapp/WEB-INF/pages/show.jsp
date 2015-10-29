@@ -27,7 +27,9 @@
 	<div id="main" class="container-fluid">
 		<div class="row col-sm-11 center-block">
 			<div class="col-sm-12 card form-horizontal">
-				<h1>Show Student</h1>
+				<h1>Show Student
+				<a class="btn pull-right" href="${pageContext.request.contextPath}/"><i class="fa fa-home fa-2x"></i></a>
+				</h1>
 				<hr>
 				<div class="col-sm-12 ">
 					<div class="col-sm-8 center-block" style="margin-bottom: 40px;">
@@ -60,18 +62,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-6 center-block">
-						<div class="form-group">
-							<a href="${pageContext.request.contextPath}/update/${stu.id}" id="btnAdd" class="btn btn-primary"
-								style="width: 200px;">
+					<a href="/hrd_student_spring/update/18" id="btnAdd" class="btn btn-primary center-block" style="width: 200px;">
 								<i class="fa fa-pencil"></i>&nbsp;&nbsp;Update
-							</a>
-							<a href="${pageContext.request.contextPath}/" id="btnClear"
-								class="btn btn-primary pull-right" style="width: 200px;">
-								<i class="fa fa-home"></i>&nbsp;&nbsp;Home
-							</a>
-						</div>
-					</div>
+					</a>
 				</div>
 
 			</div>

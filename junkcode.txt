@@ -20,3 +20,17 @@ where datname = 'mydatabasename'
 ###################################
 input disabled vs readonly
 a vs button vs input
+###################################
+<div class="col-sm-6 center-block">
+	<div class="form-group">
+		<button type="submit" id="btnAdd" class="btn btn-primary"
+			style="width: 200px;">
+			<i class="fa fa-pencil"></i>&nbsp;&nbsp;Update
+		</button>
+	</div>
+</div>
+#######################################
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.lit.hw1.dto.Student"%>
+##################################
+ps.setString(1, "%" + keyword + "%");

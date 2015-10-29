@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.lit.hw1.dao.StudentDao;
 import com.lit.hw1.dto.Student;
 
-@SuppressWarnings("unused")
 @Controller
 public class MainController {
 
@@ -69,4 +68,20 @@ public class MainController {
 		model.addAttribute("stu",studentDao.show(id));
 		return "show";
 	}
+	
+	@RequestMapping(value = "/search" ,  method = RequestMethod.GET)
+	public String searchPage(ModelMap model){
+		System.out.println("search page");
+		return "search";
+	}	
+	
+	@RequestMapping(value = "/search" ,  method = RequestMethod.POST)
+	public String searchAction(ModelMap model,
+			@RequestParam(value="keyword", required=true) String keyword,
+			@RequestParam(value="type", required=true) String type
+			){
+		System.out.println("search action " + keyword + " " + type);
+		model.addAttribute("listResult", studentDao.search(keyword, type));
+		return "search";
+	}	
 }

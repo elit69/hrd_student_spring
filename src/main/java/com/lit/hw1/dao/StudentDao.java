@@ -25,8 +25,8 @@ public class StudentDao {
 			cnn = dataSource.getConnection();
 			String sql = "select * from student ORDER BY id;";
 			ps = cnn.prepareStatement(sql);
-			rs = ps.executeQuery();
 			System.out.println(ps.toString());
+			rs = ps.executeQuery();
 			ArrayList<Student> listStudent = new ArrayList<Student>();
 			while (rs.next()) {
 				Student s = new Student();
@@ -155,4 +155,37 @@ public class StudentDao {
 		return null;
 	}
 
+	public ArrayList<Student> search(String keyword, String type){
+		ResultSet rs = null;
+		PreparedStatement ps = null;
+		try {
+			cnn = dataSource.getConnection();
+			String sql = "select * from student where LOWER("+ type +") like LOWER(?)";
+			ps = cnn.prepareStatement(sql);
+			System.out.println(ps.toString());
+			ps.setString(1, keyword + "%");
+			rs = ps.executeQuery();
+			ArrayList<Student> listStudent = new ArrayList<Student>();
+			while (rs.next()) {
+				Student s = new Student();
+				s.setId(rs.getInt("id"));
+				s.setFirstname(rs.getString("first_name"));
+				s.setLastname(rs.getString("last_name"));
+				s.setClassroom(rs.getString("classroom"));
+				listStudent.add(s);
+			}
+			return listStudent;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				ps.close();
+				cnn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 }
