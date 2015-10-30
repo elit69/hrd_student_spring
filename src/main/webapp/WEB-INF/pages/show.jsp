@@ -62,7 +62,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="/hrd_student_spring/update/18" id="btnAdd" class="btn btn-primary center-block" style="width: 200px;">
+					<a href="${pageContext.request.contextPath}/update/${stu.id}" id="btnAdd" class="btn btn-primary center-block" style="width: 200px;">
 								<i class="fa fa-pencil"></i>&nbsp;&nbsp;Update
 					</a>
 				</div>

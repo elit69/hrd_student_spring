@@ -160,7 +160,7 @@ public class StudentDao {
 		PreparedStatement ps = null;
 		try {
 			cnn = dataSource.getConnection();
-			String sql = "select * from student where LOWER("+ type +") like LOWER(?)";
+			String sql = "select * from student where LOWER("+ type +") like LOWER(?) ORDER BY " + type;
 			ps = cnn.prepareStatement(sql);
 			System.out.println(ps.toString());
 			ps.setString(1, keyword + "%");

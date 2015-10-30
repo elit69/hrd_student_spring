@@ -27,8 +27,10 @@
 	<div id="main" class="container-fluid">
 		<div class="row col-sm-11 center-block">
 			<div class="col-sm-12 card form-horizontal">
-				<h1>Update Student
-				<a class="btn pull-right" href="${pageContext.request.contextPath}/"><i class="fa fa-home fa-2x"></i></a>
+				<h1>
+					Update Student <a class="btn pull-right"
+						href="${pageContext.request.contextPath}/"><i
+						class="fa fa-home fa-2x"></i></a>
 				</h1>
 				<hr>
 				<mvc:form action="${pageContext.request.contextPath}/update"
@@ -67,9 +69,16 @@
 								</div>
 							</div>
 						</div>
-						<button type="submit" id="btnAdd" class="btn btn-primary center-block" style="width: 200px;">
-									<i class="fa fa-pencil"></i>&nbsp;&nbsp;Update
-						</button>
+						<div class="col-sm-6 center-block">
+							<button type="submit" id="btnAdd" class="btn btn-primary"
+								style="width: 200px;">
+								<i class="fa fa-pencil"></i>&nbsp;&nbsp;Update
+							</button>
+							<button type="reset" id="btnClear"
+								class="btn btn-primary pull-right" style="width: 200px;">
+								<i class="fa fa-times-circle"></i>&nbsp;&nbsp;Clear
+							</button>
+						</div>
 					</div>
 				</mvc:form>
 			</div>
