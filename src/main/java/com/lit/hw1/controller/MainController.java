@@ -24,7 +24,7 @@ public class MainController {
 	public String homePage(ModelMap model){
 		//model.addAttribute("delete_status", delete_status);
 		model.addAttribute("listStudent", studentDao.list());
-		System.out.println("home page");
+		System.out.println("home page11111111111111");
 		return "home";
 	}
 	
